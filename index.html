@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script src="//cdn.jsdelivr.net/npm/flamelink/dist/flamelink.js"></script>
+<script src="./md5.min.js"></script>
+<script src="./flamelink.js">
+</script>
+<h1 id="Name">
+  <script type="text/javascript">
+    getData(function(data){
+      document.getElementById('Name').innerHTML = data[Object.keys(data)[0]].title;
+    });
+  </script>
+</h1>
+<button onclick="createUser()">
+  Create user
+</button>
+</body>
+</html>
