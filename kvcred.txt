@@ -1,0 +1,16 @@
+
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAv9yGgMWcNDlX8loyOEta8GTS_wZGHkp4",
+    authDomain: "karachivynz-3f361.firebaseapp.com",
+    databaseURL: "https://karachivynz-3f361.firebaseio.com",
+    projectId: "karachivynz-3f361",
+    storageBucket: "",
+    messagingSenderId: "142377060579"
+  };
+  firebase.initializeApp(config);
+</script>
+
+BH7CCGvhOn3JkAeE0GzWEBYJ4qLUqh5rQiXtOviFuzaQ_0TRFZD0qe--oOTmlRYt66qeML2AjRLDkS9ARkToF_c

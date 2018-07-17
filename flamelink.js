@@ -17,58 +17,68 @@ const config = {
   messagingSenderId: "142377060579"
 });*/
 const firebaseApp = firebase.initializeApp(config);
+const database = firebase.database();
 
 var email = 'karachivynz18@gmail.com';
 var password = 'superuser321';
 var authService = firebase.auth().signInWithEmailAndPassword(email, password)
-  .then(function(success) {
+  .then(function (success) {
     console.log(success);
   })
-  .catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
+  .catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+  });
 
-const app = flamelink({firebaseApp, authService});
+const app = flamelink({ firebaseApp, authService });
 
 app.content.get('newsAndUpdates')
-  .then(function(newsAndUpdates){
+  .then(function (newsAndUpdates) {
     console.log(newsAndUpdates);
     callback(newsAndUpdates);
   })
-  .catch(function(error){
+  .catch(function (error) {
     console.log(error);
   });
 function getData(callback) {
   app.content.get('newsAndUpdates')
-    .then(function(newsAndUpdates){
+    .then(function (newsAndUpdates) {
       console.log(newsAndUpdates);
       callback(newsAndUpdates);
     })
-    .catch(function(error){
+    .catch(function (error) {
       console.log(error);
     });
 }
 
 function createUser() {
   const hash = md5(userCreateData.email);
-  app.content.set('user', hash,userCreateData)
-    .then(function(){console.log('Setting the entry succeeded')} )
-    .catch(function(err){
+  app.content.set('user', hash, userCreateData)
+    .then(function () { console.log('Setting the entry succeeded') })
+    .catch(function (err) {
       console.log(err);
-      console.error('Something went wrong while setting the entry.')});
+      console.error('Something went wrong while setting the entry.')
+    });
 }
 
 const userCreateData = {
   firstName: 'dani',
-    lastName: 'usmani',
-  dateOfBirth:'17/07/1993',
+  lastName: 'usmani',
+  dateOfBirth: '17/07/1993',
   createAt: Date.now(),
   updatedAt: Date.now(),
   facebook: {},
   email: 'usmanidaniyal123@gmail.com',
-    additionalDetail: 'Test Details',
-  gender:'Male'
+  additionalDetail: 'Test Details',
+  gender: 'Male'
+}
+
+function writeYoutubeData() {
+  var id = "12345"
+  database.ref('youtube/'+ id).set({
+    title: 'Dummy Title',
+    token: 'acnasdljhasdflkhasdkfjasdf'
+  });
 }
